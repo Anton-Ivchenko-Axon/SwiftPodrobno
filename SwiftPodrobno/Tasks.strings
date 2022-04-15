@@ -13,3 +13,38 @@
 
 2.1. Возможность добавления новых моделей без рефакторинга основной модели данных
 2.2. Безопасность на этапе компиляции (компилятор просить обработать все кейсы, если вы забыли про какой-то из них)
+
+Упражнение 2.4.4
+
+1. 12 вариация
+
+2. enum Bagel {
+     case bagel(topping: Topping, bagelType: BagelType)
+   }
+
+3.  struct Baby {
+    var numberOfPieces: Int
+    }
+
+    struct Toddler {
+    var numberOfPieces: Int
+    }
+
+    struct Preschooler {
+    var numberOfPieces: Int
+    }
+
+    struct Gradeschooler {
+    var numberOfPieces: Int
+    }
+
+    struct Teenager {
+    var numberOfPieces: Int
+    }
+
+Упражнение 2.5.3
+
+1. String, Character, Int, Double, Float
+2. На этапе компиляции
+3. Во время выполнения
+4. Любые
