@@ -48,3 +48,35 @@
 2. На этапе компиляции
 3. Во время выполнения
 4. Любые
+
+Упражнение 3.2.6
+
+1. var age: Int? {
+     let years = Calendar.current
+         .dateComponents([.year], from: Date(), to: birthDate)
+         .day
+     return years
+   }
+
+   lazy private(set) var songs: [Song] = {
+       guard let fileURL = Bundle.main.url(forResource: songsFileName, withExtension: "plist"),
+       let data = try? Data(contentsOf: fileURL),
+       let songs = try? PropertyListDecoder().decode([Song].self, from:
+                                                       data) else {
+       return [] }
+       return songs
+    }()
+
+2. Да, можно сделать private(set) чтобы не дать возможность изменять свойство song из вне.
+3. Либо сделать songsFileName контстантой, либо преобразовать структуру в класс, тогда свойства будут не копироваться а ссылаться на то же самое свойство.
+
+Упражнение 3.3.3
+
+1. Var с didSet/willSet
+2. Вычисляемое или ленивое
+3. init(date: Date, author: String, message: String) {
+      defer { self.message = message }
+      self.date = date
+      self.author = author
+      self.message = message
+   }
