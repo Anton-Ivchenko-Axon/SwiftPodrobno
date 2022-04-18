@@ -80,3 +80,8 @@
       self.author = author
       self.message = message
    }
+
+Упражнение 4.6.1
+
+1. Можно воспользоваться guard
+2. Поместить опционалы в один Tuple
