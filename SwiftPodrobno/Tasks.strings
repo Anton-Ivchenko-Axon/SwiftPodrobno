@@ -85,3 +85,51 @@
 
 1. Можно воспользоваться guard
 2. Поместить опционалы в один Tuple
+
+Упражнение 4.8.1
+
+1. func describeAction(event: PasteBoardEvent?, contents: PasteBoardContents?) -> String {
+        switch (event, contents) {
+            case let(.added?, .url(url)?):
+                return "User added an url to pasteboard: \(url)"
+            case (.added?, .emailAddress(_)?):
+                return "User added something to pasteboard."
+            case (.erased?,.emailAddress(_)?):
+                return "User erased an email address from the pasteboard."
+            case (.erased?, _):
+                return "The pasteboard is updated."
+            case (_, .other(_)?):
+                return "The pasteboard is updated."
+            default:
+                return "The pasteboard is updated"
+            }
+    }
+
+Упражнение 4.10.5
+
+1. enum AudioSetting: RawRepresentable {
+    
+        case audioEnabled
+        case audioDisabled
+        case notSet
+    
+        init(rawValue: Bool?) {
+            switch rawValue {
+                case true?: self = .audioEnabled
+                case false?: self = .audioDisabled
+                default: self = .notSet
+            }
+        }
+
+        var rawValue: Bool? {
+            switch self {
+                case .audioEnabled: return true
+                case .audioDisabled: return false
+                case .notSet: return nil
+            }
+        }
+    }
+
+Упражнение 4.12.3
+
+1. Можно пользоваться lazy свойствами или передать фабрику в нужный класс
