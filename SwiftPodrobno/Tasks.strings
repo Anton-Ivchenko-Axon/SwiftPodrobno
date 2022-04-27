@@ -133,3 +133,49 @@
 Упражнение 4.12.3
 
 1. Можно пользоваться lazy свойствами или передать фабрику в нужный класс
+
+Упражнение 5.1.3
+
+    struct Pancakes {
+
+        enum SyrupType {
+            case corn
+            case molasses
+            case maple
+        }
+
+        let syrupType: SyrupType
+        let stackSize: Int
+    }
+
+    let pancakes = Pancakes(syrupType: .corn, stackSize: 8)
+    let morePancakes = Pancakes(syrupType: .maple)
+
+    extension Pancakes {
+        init(syrupType: SyrupType) {
+            self.stackSize = 10
+            self.syrupType = syrupType
+        }
+    }
+
+Упражнение 5.2.6
+
+    override init(serialNumber: String, room: String) {
+        self.resolution = Resolution.fullHd
+        self.screenType = ScreenType.oled
+        super.init(serialNumber: serialNumber, room: room)
+    }
+
+Упражнение 5.3.3
+
+ Нужно добавить в классе MutabilityLand
+
+    override convenience init(serialNumber: String, room: String) {
+        self.init(resolution: .fullHd, screenType: .oled, serialNumber: serialNumber, room: room)
+    }
+
+и в классе MutabilityLandJunior
+
+    override convenience init(resolution: Television.Resolution, screenType: Television.ScreenType, serialNumber: String, room: String) {
+        self.init(weight: 10, resolution: resolution, screenType: screenType, serialNumber: serialNumber, room: room)
+    }
