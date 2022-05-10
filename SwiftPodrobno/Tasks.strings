@@ -192,3 +192,25 @@
     - создать промежуточный массив для обработки ошибок
     - использовать неизменяемые функции без слова throws
 
+Упражнение 6.2.4
+
+1. Потому как тяжело разграничить сообщение для пользователя и сообщение разработчику, можно запутаться
+2. enum LoadError {
+        case couldntLoadFile
+   }
+
+   func loadFile(name: String) throws -> Data? {
+    let url = playgroundSharedDataDirectory.appendingPathComponent(name)
+    do {
+        return try Data(contentsOf: url)
+        } catch let error as LoadError {
+            print("Can't load file named \(name)")
+            return nil
+        }
+   }
+
+Упражнение 6.3.5
+
+1. - Можно обработать ошибку в момент создания через проваливащийся инициализатор
+   - Вернуть опциональное зачение, если ошибка выдает только один тип ошибки
+   - Можно через принудительное извлечения опционала try!
